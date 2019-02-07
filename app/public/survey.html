@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="shortcut icon" href="assets/favicon.ico">
+
+    <title>Friend Finder</title>
+
+    <!-- FONTS -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600,800" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="assets/reset.css">
+    <link rel="stylesheet" type="text/css" href="assets/style.css">
+
+</head>
+
+<body>
+
+    <header class="container">
+        <h1><a href="/"><i class="fas fa-fire"></i> Friend Finder</a></h1>
+    </header>
+
+    <section class="container container-fill">
+
+        <h2>Survey</h2>
+        
+        <hr />
+
+        <form>
+
+            <h3>About You:</h3>
+
+            <label for="userName">
+                <p class="q">Name:</p>
+                <input type="text" name="userName" id="userName" required>
+            </label>
+
+            <label for="userImg" class="btn">
+                <i class="fas fa-user social"></i>&nbsp;&nbsp;Upload Profile Image
+                <input type="file" accept="image/*" name="userImg" id="userImg" required>
+            </label>
+            <p class="helper">Pictures cropped to a square preferred</p>
+
+            <h3>Rate your agreement with the following statements:</h3>
+
+            <label for="q1">
+                <p class="q">You get energy by spending time with others.</p>
+
+                <div class="slide-container">
+
+                    <input type="range" min="1" max="5" value="3" class="slider" id="q1">
+
+                    <div class="slide-scale">
+                        <span style="text-align: left;"><i class="fas fa-angle-left"></i> Disagree</span>
+                        <span style="text-align: center;">Neutral</span>
+                        <span style="text-align: right;"> Agree <i class="fas fa-angle-right"></i></span>
+                    </div>
+
+                </div>
+
+            </label>
+
+            <label for="q2">
+                <p class="q">You always think before you speak or act.</p>
+
+                <div class="slide-container">
+
+                    <input type="range" min="1" max="5" value="3" class="slider" id="q2">
+
+                    <div class="slide-scale">
+                        <span style="text-align: left;"><i class="fas fa-angle-left"></i> Disagree</span>
+                        <span style="text-align: center;">Neutral</span>
+                        <span style="text-align: right;"> Agree <i class="fas fa-angle-right"></i></span>
+                    </div>
+
+                </div>
+
+            </label>
+
+            <label for="q3">
+                <p class="q">You prefer to think in abstract terms.</p>
+
+                <div class="slide-container">
+
+                    <input type="range" min="1" max="5" value="3" class="slider" id="q3">
+
+                    <div class="slide-scale">
+                        <span style="text-align: left;"><i class="fas fa-angle-left"></i> Disagree</span>
+                        <span style="text-align: center;">Neutral</span>
+                        <span style="text-align: right;"> Agree <i class="fas fa-angle-right"></i></span>
+                    </div>
+
+                </div>
+
+            </label>
+
+            <label for="q4">
+                <p class="q">You focus on what is real in the present.</p>
+
+                <div class="slide-container">
+
+                    <input type="range" min="1" max="5" value="3" class="slider" id="q4">
+
+                    <div class="slide-scale">
+                        <span style="text-align: left;"><i class="fas fa-angle-left"></i> Disagree</span>
+                        <span style="text-align: center;">Neutral</span>
+                        <span style="text-align: right;"> Agree <i class="fas fa-angle-right"></i></span>
+                    </div>
+
+                </div>
+
+            </label>
+
+            <label for="q5">
+                <p class="q">You make decisions based on logic.</p>
+
+                <div class="slide-container">
+
+                    <input type="range" min="1" max="5" value="3" class="slider" id="q5">
+
+                    <div class="slide-scale">
+                        <span style="text-align: left;"><i class="fas fa-angle-left"></i> Disagree</span>
+                        <span style="text-align: center;">Neutral</span>
+                        <span style="text-align: right;"> Agree <i class="fas fa-angle-right"></i></span>
+                    </div>
+
+                </div>
+
+            </label>
+
+            <label for="q6">
+                <p class="q">You tend to be more poetic in describing the world.</p>
+
+                <div class="slide-container">
+
+                    <input type="range" min="1" max="5" value="3" class="slider" id="q6">
+
+                    <div class="slide-scale">
+                        <span style="text-align: left;"><i class="fas fa-angle-left"></i> Disagree</span>
+                        <span style="text-align: center;">Neutral</span>
+                        <span style="text-align: right;"> Agree <i class="fas fa-angle-right"></i></span>
+                    </div>
+
+                </div>
+
+            </label>
+
+            <label for="q7">
+                <p class="q">You are always seeking more information.</p>
+
+                <div class="slide-container">
+
+                    <input type="range" min="1" max="5" value="3" class="slider" id="q7">
+
+                    <div class="slide-scale">
+                        <span style="text-align: left;"><i class="fas fa-angle-left"></i> Disagree</span>
+                        <span style="text-align: center;">Neutral</span>
+                        <span style="text-align: right;"> Agree <i class="fas fa-angle-right"></i></span>
+                    </div>
+
+                </div>
+
+            </label>
+
+            <label for="q8">
+                <p class="q">You make plans in advance and stick to them.</p>
+
+                <div class="slide-container">
+
+                    <input type="range" min="1" max="5" value="3" class="slider" id="q8">
+
+                    <div class="slide-scale">
+                        <span style="text-align: left;"><i class="fas fa-angle-left"></i> Disagree</span>
+                        <span style="text-align: center;">Neutral</span>
+                        <span style="text-align: right;"> Agree <i class="fas fa-angle-right"></i></span>
+                    </div>
+
+                </div>
+
+            </label>
+
+            <label for="q9">
+                <p class="q">You are even-tempered and resistant to stress.</p>
+
+                <div class="slide-container">
+
+                    <input type="range" min="1" max="5" value="3" class="slider" id="q9">
+
+                    <div class="slide-scale">
+                        <span style="text-align: left;"><i class="fas fa-angle-left"></i> Disagree</span>
+                        <span style="text-align: center;">Neutral</span>
+                        <span style="text-align: right;"> Agree <i class="fas fa-angle-right"></i></span>
+                    </div>
+
+                </div>
+
+            </label>
+
+            <label for="q10">
+                <p class="q">You identify as a perfectionist and are self-conscious.</p>
+
+                <div class="slide-container">
+
+                    <input type="range" min="1" max="5" value="3" class="slider" id="q10">
+
+                    <div class="slide-scale">
+                        <span style="text-align: left;"><i class="fas fa-angle-left"></i> Disagree</span>
+                        <span style="text-align: center;">Neutral</span>
+                        <span style="text-align: right;"> Agree <i class="fas fa-angle-right"></i></span>
+                    </div>
+
+                </div>
+
+            </label>
+
+            <div>
+                <button type="submit" class="btn">Submit Survey</button>
+            </div>
+
+        </form>
+
+    </section>
+
+    <footer class="container">
+        <nav>
+            <ul>
+                <li><a href="https://fkakatie.github.io/responsive-portfolio/index.html" target="_blank">About</a></li>
+                <li><a href="https://fkakatie.github.io/responsive-portfolio/portfolio.html" target="_blank">Portfolio</a></li>
+                <li><a href="https://fkakatie.github.io/responsive-portfolio/contact.html" target="_blank">Contact</a></li>
+                <li><a href="https://github.com/fkakatie" target="_blank"><i class="fab fa-github-square social"></i></a></li>
+            </ul>
+        </nav>
+        <p class="credit">&copy; 2019</p>
+    </footer>
+
+</body>
+
+<!-- JAVASCRIPT -->
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="assets/script.js"></script>
+
+</html>
