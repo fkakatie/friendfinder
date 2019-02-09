@@ -35,16 +35,21 @@
 
             <h3>About You:</h3>
 
-            <label for="userName">
+            <label for="username">
                 <p class="q">Name:</p>
-                <input type="text" name="userName" id="userName" required>
+                <input type="text" name="username" id="username" maxlength="30" required>
             </label>
 
-            <label for="userImg" class="btn">
-                <i class="fas fa-user social"></i>&nbsp;&nbsp;Upload Profile Image
-                <input type="file" accept="image/*" name="userImg" id="userImg" required>
+            <label for="pictureURL">
+                <p class="q">pictureURL:</p>
+                <input type="text" name="pictureURL" id="pictureURL" required>
             </label>
-            <p class="helper">Pictures cropped to a square preferred</p>
+
+            <!-- <label for="profPic" class="btn profBtn">
+                <i class="fas fa-user social"></i>&nbsp;&nbsp;Upload Profile Pic
+                <input type="file" accept="image/*" name="profPic" id="profPic" class="profPic" required>
+            </label> -->
+            <p class="helper">Pics cropped to a square preferred</p>
 
             <h3>Rate your agreement with the following statements:</h3>
 
@@ -219,7 +224,7 @@
             </label>
 
             <div>
-                <button type="submit" class="btn">Submit Survey</button>
+                <button type="submit" class="btn" id="submit">Submit Survey</button>
             </div>
 
         </form>
@@ -242,6 +247,7 @@
 
 <!-- JAVASCRIPT -->
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://momentjs.com/downloads/moment.js"></script>
 <script src="assets/script.js"></script>
 
 </html>

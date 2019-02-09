@@ -8,6 +8,7 @@ var PORT = process.env.PORT || 3000;
 // middleware
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+// app.use(bodyParser.json());
 app.use(express.static('./app/public')); // serves static files
 
 // setup routes

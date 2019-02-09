@@ -1,46 +1,159 @@
 $(document).ready(function() {
 
-     var q1slide = $('#q1');
-     var q2slide = $('#q2');
-     var q3slide = $('#q3');
-     var q4slide = $('#q4');
-     var q5slide = $('#q5');
-     var q6slide = $('#q6');
-     var q7slide = $('#q7');
-     var q8slide = $('#q8');
-     var q9slide = $('#q9');
-    var q10slide = $('#q10');
+    // check on profile pic button event
+    $('.profPic').each( function() {
 
-     var q1value = $('.q1');
-     var q2value = $('.q2');
-     var q3value = $('.q3');
-     var q4value = $('.q4');
-     var q5value = $('.q5');
-     var q6value = $('.q6');
-     var q7value = $('.q7');
-     var q8value = $('.q8');
-     var q9value = $('.q9');
-    var q10value = $('.q10');
+		$(this).on('change', function(event) {
 
-    $('input').change(function() {
-        q1value.text(q1slide.val());
-        q2value.text(q2slide.val());
-        q3value.text(q3slide.val());
-        q4value.text(q4slide.val());
-        q5value.text(q5slide.val());
-        q6value.text(q6slide.val());
-        q7value.text(q7slide.val());
-        q8value.text(q8slide.val());
-        q9value.text(q9slide.val());
-        q10value.text(q10slide.val());
+            // if the user uploads a file
+            if (this.files.length === 1) {
+
+                // add file name as attribute
+                $('.profPic').attr('data-caption', this.files[0].name);
+                // change button text
+                $('form .profBtn').html('<i class="fas fa-user-check"></i>' + '&nbsp;&nbsp;' + 'Pic Uploaded!');
+                // add uploaded button class
+                $('.profBtn').addClass('picUploaded');
+
+            }
+                
+		});
+
+		// firefox bug fix
+		$(this).on('focus', function() {
+            $(this).addClass('has-focus');
+        });
+
+		$(this).on('blur', function() {
+            $(this).removeClass('has-focus');
+        });
+
+	});
+
+    // when submit button is clicked
+    $('#submit').on('click', function(event) {
+        // prevent reload
+        event.preventDefault();
+
+        // user response to survey questions
+        var q1 = $('#q1').val();
+        var q2 = $('#q2').val();
+        var q3 = $('#q3').val();
+        var q4 = $('#q4').val();
+        var q5 = $('#q5').val();
+        var q6 = $('#q6').val();
+        var q7 = $('#q7').val();
+        var q8 = $('#q8').val();
+        var q9 = $('#q9').val();
+        var q10 = $('#q10').val();
+
+        // store user data in object
+        var newFriend = {
+            username: $('#username').val().trim(),
+            profPic: $('#pictureURL').val().trim(),
+            survey: [q1, q2, q3, q4, q5, q6,q7, q8, q9, q10]
+        }
+
+        // console.log(newFriend.profPic);
+
+        var mbtiType;
+        let randomNum;
+
+        // generate random number between 0 and 1
+        function coinflip() {
+            randomNum = Math.round(Math.random());
+        }
+
+        // find user mbti, but only based on ten questions...
+        function findMbti(array) {
+
+            // inverse user input on even questions
+            for (var i = 1; i < array.length; i+=2) {
+
+                switch (array[i]) {
+                case 1:
+                    array[i] = 5;
+                    break;
+                case 2:
+                    array[i] = 4;
+                    break;
+                case 4:
+                    array[i] = 2;
+                    break;
+                case 5:
+                    array[i] = 1;
+                    break;
+                default:
+                    break;
+                }
+
+            }
+
+            // combine scores in each mbti dichotomy
+            var iE = array[0] + array[1]; // introversion/extraversion
+            var sN = array[2] + array[3]; // sensing/intuiting
+            var fT = array[4] + array[5]; // feeling/thinking
+            var pJ = array[6] + array[7]; // perceiving/judging
+            var tA = array[8] + array[9]; // turbulent/assertive
+
+            // store dichotomy scores in array
+            var newArr = [iE, sN, fT, pJ, tA];
+
+            for (var k = 0; k < newArr.length; k++) {
+
+                // if dichotomy score is on the cusp, flip a coin to assign type
+                if (newArr[k] === 6) {
+                    coinflip();
+                    newArr[k] += randomNum;
+                }
+
+            }
+
+            // sets new value for each dichotomy
+            iE = newArr[0];
+            sN = newArr[1];
+            fT = newArr[2];
+            pJ = newArr[3];
+            tA = newArr[4];
+
+            // create mbti string
+            iE <= 6 ? mbtiType = 'I' : mbtiType = 'E';
+            sN <= 6 ? mbtiType += 'S' : mbtiType += 'N';
+            fT <= 6 ? mbtiType += 'F' : mbtiType += 'T';
+            pJ <= 6 ? mbtiType += 'P' : mbtiType += 'J';
+            tA <= 6 ? mbtiType += '-T' : mbtiType += '-A';
+
+            // add mbti type to newFriend object
+            newFriend.mbtiType = mbtiType;
+
+        }
+
+        // find mbti based on user survey
+        findMbti(newFriend.survey);
+
+        // console.log(newFriend);
+        // console.log('> ' + newFriend.username);
+        // console.log('> ' + newFriend.profPic);
+        // console.log('> ' + newFriend.survey);
+        // console.log('> ' + newFriend.mbtiType);
+
+        // post data to api
+        $.post('/api/friends', newFriend, function(data) {
+
+            console.log('this works');
+
+        })
+
     })
 
-    var now = moment().format('h:mm');
-    $('.time').text(now);
+    // get current time & put it in modal
+    // var now = moment().format('h:mm');
+    // $('.time').text(now);
     
-    setInterval(function() {
-        now = moment().format('h:mm');
-        $('.time').text(now);
-    }, 15000);
+    // update time every 15 seconds, just in case...
+    // setInterval(function() {
+    //     now = moment().format('h:mm');
+    //     $('.time').text(now);
+    // }, 15000);
 
 });
