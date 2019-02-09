@@ -1,3 +1,5 @@
+var friendsData = require("../data/friends");
+
 $(document).ready(function() {
 
     // check on profile pic button event
@@ -123,6 +125,8 @@ $(document).ready(function() {
             pJ <= 6 ? mbtiType += 'P' : mbtiType += 'J';
             tA <= 6 ? mbtiType += '-T' : mbtiType += '-A';
 
+            // add mbti array to newFriend object
+            newFriend.mbtiArray = newArr;
             // add mbti type to newFriend object
             newFriend.mbtiType = mbtiType;
 
@@ -142,18 +146,50 @@ $(document).ready(function() {
 
             console.log('this works');
 
+            
+
         })
 
-    })
+    });
+
+    function match() {
+        // store potential match scores in array
+        var potentialMatches = [];
+
+        // compare mbtiArray of user against all friends in friendsData
+        for (var j = 0; j < friendsData.length; j++) {
+
+            let matchScore = 0;
+
+            // > get mbtiArray for each friend in friendData
+            var friendMbtiArr = friendsData[j].mbtiArray;
+            // > compare each item in mbtiArray
+            // > get match score
+            // > find friend with the closest match score
+
+            for (var k = 0; k < (newFriend.mbtiArray.length - 1); k++) {
+
+                matchScore += Math.abs(Number(friendMbtiArr[k]) - newFriend.mbtiArray[k]);
+                console.log('match score: ' + matchScore)
+
+            }
+
+            potentialMatches.push(matchScore);
+        
+            console.log('potential matches: ' + potentialMatches);
+
+        }
+
+    }
 
     // get current time & put it in modal
-    // var now = moment().format('h:mm');
-    // $('.time').text(now);
+    var now = moment().format('h:mm');
+    $('.time').text(now);
     
     // update time every 15 seconds, just in case...
-    // setInterval(function() {
-    //     now = moment().format('h:mm');
-    //     $('.time').text(now);
-    // }, 15000);
+    setInterval(function() {
+        now = moment().format('h:mm');
+        $('.time').text(now);
+    }, 15000);
 
 });
