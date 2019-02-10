@@ -1,5 +1,3 @@
-var friendsData = require("../data/friends");
-
 $(document).ready(function() {
 
     // check on profile pic button event
@@ -30,7 +28,11 @@ $(document).ready(function() {
             $(this).removeClass('has-focus');
         });
 
-	});
+    });
+    
+    // setup modal
+    var modal = $('#modal-container');
+    var close = $('.close');
 
     // when submit button is clicked
     $('#submit').on('click', function(event) {
@@ -56,8 +58,6 @@ $(document).ready(function() {
             survey: [q1, q2, q3, q4, q5, q6,q7, q8, q9, q10]
         }
 
-        // console.log(newFriend.profPic);
-
         var mbtiType;
         let randomNum;
 
@@ -73,15 +73,19 @@ $(document).ready(function() {
             for (var i = 1; i < array.length; i+=2) {
 
                 switch (array[i]) {
+                case '1':
                 case 1:
                     array[i] = 5;
                     break;
+                case '2':
                 case 2:
                     array[i] = 4;
                     break;
+                case '4':
                 case 4:
                     array[i] = 2;
                     break;
+                case '5':
                 case 5:
                     array[i] = 1;
                     break;
@@ -92,11 +96,11 @@ $(document).ready(function() {
             }
 
             // combine scores in each mbti dichotomy
-            var iE = array[0] + array[1]; // introversion/extraversion
-            var sN = array[2] + array[3]; // sensing/intuiting
-            var fT = array[4] + array[5]; // feeling/thinking
-            var pJ = array[6] + array[7]; // perceiving/judging
-            var tA = array[8] + array[9]; // turbulent/assertive
+            var iE = Number(array[0]) + Number(array[1]); // introversion/extraversion
+            var sN = Number(array[2]) + Number(array[3]); // sensing/intuiting
+            var fT = Number(array[4]) + Number(array[5]); // feeling/thinking
+            var pJ = Number(array[6]) + Number(array[7]); // perceiving/judging
+            var tA = Number(array[8]) + Number(array[9]); // turbulent/assertive
 
             // store dichotomy scores in array
             var newArr = [iE, sN, fT, pJ, tA];
@@ -132,8 +136,10 @@ $(document).ready(function() {
 
         }
 
+        var arrayToConvert = Array.from(newFriend.survey);
+
         // find mbti based on user survey
-        findMbti(newFriend.survey);
+        findMbti(arrayToConvert);
 
         // console.log(newFriend);
         // console.log('> ' + newFriend.username);
@@ -144,43 +150,76 @@ $(document).ready(function() {
         // post data to api
         $.post('/api/friends', newFriend, function(data) {
 
-            console.log('this works');
+            $('.user-img').attr('src', newFriend.profPic);
 
-            
+            for (var j = 0; j < newFriend.mbtiArray.length; j++) {
 
-        })
-
-    });
-
-    function match() {
-        // store potential match scores in array
-        var potentialMatches = [];
-
-        // compare mbtiArray of user against all friends in friendsData
-        for (var j = 0; j < friendsData.length; j++) {
-
-            let matchScore = 0;
-
-            // > get mbtiArray for each friend in friendData
-            var friendMbtiArr = friendsData[j].mbtiArray;
-            // > compare each item in mbtiArray
-            // > get match score
-            // > find friend with the closest match score
-
-            for (var k = 0; k < (newFriend.mbtiArray.length - 1); k++) {
-
-                matchScore += Math.abs(Number(friendMbtiArr[k]) - newFriend.mbtiArray[k]);
-                console.log('match score: ' + matchScore)
+                switch (newFriend.mbtiArray[j]) {
+                    case '2':
+                    case 2:
+                        newFriend.mbtiArray[j] = 'two';
+                        break;
+                    case '3':
+                    case 3:
+                        newFriend.mbtiArray[j] = 'three';
+                        break;   
+                    case '4':
+                    case 4:
+                        newFriend.mbtiArray[j] = 'four';
+                        break;  
+                    case '5':
+                    case 5:
+                        newFriend.mbtiArray[j] = 'five';
+                        break;  
+                    case '6':
+                    case 6:
+                        newFriend.mbtiArray[j] = 'six';
+                        break;   
+                    case '7':
+                    case 7:
+                        newFriend.mbtiArray[j] = 'seven';
+                        break;   
+                    case '8':
+                    case 8:
+                        newFriend.mbtiArray[j] = 'eight';
+                        break;       
+                    case '9':
+                    case 9:
+                        newFriend.mbtiArray[j] = 'nine';
+                        break;   
+                    case '10':
+                    case 10:
+                        newFriend.mbtiArray[j] = 'ten';
+                        break;             
+                    default:
+                        break;
+                }
 
             }
 
-            potentialMatches.push(matchScore);
-        
-            console.log('potential matches: ' + potentialMatches);
+            $('.user-iE').addClass(newFriend.mbtiArray[0]);
+            $('.user-sN').addClass(newFriend.mbtiArray[1]);
+            $('.user-fT').addClass(newFriend.mbtiArray[2]);
+            $('.user-pJ').addClass(newFriend.mbtiArray[3]);
+            $('.user-tA').addClass(newFriend.mbtiArray[4]);
 
-        }
+            modal.css('display', 'block');
+
+        });
+
+    });
+
+    // style modal 
+    function styleModal() {
+
+
 
     }
+
+    // close modal
+    $('.close').on('click', function(event) {
+        modal.css('display', 'none');
+    });
 
     // get current time & put it in modal
     var now = moment().format('h:mm');
