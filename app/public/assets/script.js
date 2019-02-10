@@ -203,6 +203,60 @@ $(document).ready(function() {
             $('.user-pJ').addClass(newFriend.mbtiArray[3]);
             $('.user-tA').addClass(newFriend.mbtiArray[4]);
 
+            $('.match-name').text(data.username);
+            $('.match-img').attr('src', data.profPic);
+
+            for (var l = 0; l < data.mbtiArray.length; l++) {
+
+                switch (data.mbtiArray[l]) {
+                    case '2':
+                    case 2:
+                        data.mbtiArray[l] = 'two';
+                        break;
+                    case '3':
+                    case 3:
+                        data.mbtiArray[l] = 'three';
+                        break;   
+                    case '4':
+                    case 4:
+                        data.mbtiArray[l] = 'four';
+                        break;  
+                    case '5':
+                    case 5:
+                        data.mbtiArray[l] = 'five';
+                        break;  
+                    case '6':
+                    case 6:
+                        data.mbtiArray[l] = 'six';
+                        break;   
+                    case '7':
+                    case 7:
+                        data.mbtiArray[l] = 'seven';
+                        break;   
+                    case '8':
+                    case 8:
+                        data.mbtiArray[l] = 'eight';
+                        break;       
+                    case '9':
+                    case 9:
+                        data.mbtiArray[l] = 'nine';
+                        break;   
+                    case '10':
+                    case 10:
+                        data.mbtiArray[l] = 'ten';
+                        break;             
+                    default:
+                        break;
+                }
+
+            }
+
+            $('.match-iE').addClass(data.mbtiArray[0]);
+            $('.match-sN').addClass(data.mbtiArray[1]);
+            $('.match-fT').addClass(data.mbtiArray[2]);
+            $('.match-pJ').addClass(data.mbtiArray[3]);
+            $('.match-tA').addClass(data.mbtiArray[4]);
+
             modal.css('display', 'block');
 
         });

@@ -1,6 +1,5 @@
 // required packages
 var express = require('express');
-var converter = require('number-to-words');
 
 // setup express
 var app = express();

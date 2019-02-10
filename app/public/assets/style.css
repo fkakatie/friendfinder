@@ -1,15 +1,3 @@
-/* COLORS
-    gray: #434343
-    light-gray: #e0e4e9
-    orange: #ff8a40
-    pink: #ee6864
-    dark-pink: #dc4588
-    teal: #29A489
-    aqua: #3980A0
-    blue: #495CB6
-
-*/
-
 /*
 ==============================
 BASIC SETUP
@@ -397,7 +385,7 @@ MODAL
 }
 
 .modal {
-    margin: 0 auto;
+    margin: 0 30px;
     border-radius: 30px;
     border: 12px solid #363636;
     width: 320px;
@@ -408,10 +396,13 @@ MODAL
 }
 
 .modal-left {
+    justify-self: end;
     transform: rotate(-1deg);
+    z-index: 1;
 }
 
 .modal-right {
+    justify-self: start;
     transform: rotate(1deg);
     z-index: 2;
 }
