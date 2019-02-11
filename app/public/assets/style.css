@@ -564,3 +564,8 @@ MODAL
 .modal .ten {
     width: 100% !important;
 }
+
+.modal-btn {
+    padding-top: 16px;
+    text-align: center;
+}

@@ -48,4 +48,8 @@
         transform: scale(0.8);
     }
 
+    .modal-btn {
+        padding: 0;
+    }
+
 }
