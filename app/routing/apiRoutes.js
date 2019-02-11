@@ -47,10 +47,10 @@ module.exports = function(app) {
         // find index of lowest score in array
         friendMatchIndex = matchScores.indexOf(Math.min(...matchScores));
         friendMatch = friendsData[friendMatchIndex];
+        
+        friendsData.push(user);
 
         res.json(friendMatch);
-
-        friendsData.push(user);
         
     });
 
