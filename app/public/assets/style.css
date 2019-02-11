@@ -106,6 +106,12 @@ HEADER
 ==============================
 */
 
+header {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+}
+
 header h1 a {
     text-decoration: none;
     color: #fff;
@@ -139,17 +145,34 @@ SECTION
     font-size: 0.8em;
     text-transform: uppercase;
     text-decoration: none;
-    background: #434343;
-    color: #fff;
-    box-shadow: 0px 5px 10px rgba(67, 67, 67,0.5);
     cursor: pointer;
 }
 
-.btn:hover,
-.btn:active {
+.btn-primary {
+    background: #434343;
+    color: #fff;
+    box-shadow: 0px 5px 10px rgba(67, 67, 67,0.5);
+}
+
+.btn-secondary {
+    margin-top: 0;
+    background: transparent;
+    color: #fff;
+    border: 2px solid #fff;
+}
+
+.btn-primary:hover,
+.btn-primary:active {
     background: #e0e4e9;
     transition: all 0.5s;
     box-shadow: none;
+}
+
+.btn-secondary:hover,
+.btn-secondary:active {
+    background: #fff;
+    color: #ee6864;
+    transition: all 0.5s;
 }
 
 /*
@@ -233,7 +256,7 @@ form input:focus {
     text-transform: uppercase;
     color: #929496;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
 }
 
 .slider {
@@ -389,7 +412,7 @@ MODAL
     border-radius: 30px;
     border: 12px solid #363636;
     width: 320px;
-    min-height: 480px;
+    /* min-height: 480px; */
     background: #fff;
     color: #434343;
     position: relative;

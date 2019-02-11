@@ -17,19 +17,25 @@
     <link rel="stylesheet" type="text/css" href="assets/reset.css">
     <link rel="stylesheet" type="text/css" href="assets/style.css">
 
+    <!-- MEDIA QUERIES -->
+    <link rel="stylesheet" media="screen and (max-width: 770px)" href="assets/w770.css">
+    <link rel="stylesheet" media="screen and (max-width: 420px)" href="assets/w420.css">
+    <link rel="stylesheet" media="screen and (max-width: 380px)" href="assets/w380.css">
+
 </head>
 
 <body>
 
     <header class="container">
         <h1><a href="/"><i class="fas fa-fire"></i> Friend Finder</a></h1>
+        <a href="/api/friends" class="btn btn-secondary">See All Friends</a>
     </header>
 
     <section class="container container-fill">
         <p class="big">Find your next best friend with <strong>friend finder</strong>!</p>
         <p>Complete a 10 question survey to be matched with someone who shares your interests.</p>
         <p>Your survery results will be saved so others can match with you later!</p>
-        <a href="/survey" class="btn">Start the Survey</a>
+        <a href="/survey" class="btn btn-primary">Start the Survey</a>
     </section>
 
     <footer class="container">

@@ -17,19 +17,25 @@
     <link rel="stylesheet" type="text/css" href="assets/reset.css">
     <link rel="stylesheet" type="text/css" href="assets/style.css">
 
+    <!-- MEDIA QUERIES -->
+    <link rel="stylesheet" media="screen and (max-width: 770px)" href="assets/w770.css">
+    <link rel="stylesheet" media="screen and (max-width: 420px)" href="assets/w420.css">
+    <link rel="stylesheet" media="screen and (max-width: 380px)" href="assets/w380.css">
+
 </head>
 
 <body>
 
     <header class="container">
         <h1><a href="/"><i class="fas fa-fire"></i> Friend Finder</a></h1>
+        <a href="/api/friends" class="btn btn-secondary">See All Friends</a>
     </header>
 
     <section class="container container-fill">
         <div class="error"><i class="fas fa-fire fa-10x"></i></div>
         <h2>Page not found!</h2>
         <p>But since you're here, why not take our friend-finding survey?</p>
-        <a href="/survey" class="btn">Start the Survey</a>
+        <a href="/survey" class="btn btn-primary">Start the Survey</a>
     </section>
 
     <footer class="container">

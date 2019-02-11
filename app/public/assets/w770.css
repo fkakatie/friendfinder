@@ -1,0 +1,21 @@
+@media screen and (max-width: 770px) {
+
+    /*
+    ==============================
+    MODAL
+    ==============================
+    */
+
+    .modal-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .modal-left {
+        display: none;
+    }
+
+    .modal {
+        margin: 0 auto;
+    }
+
+}

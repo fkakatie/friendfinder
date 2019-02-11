@@ -271,7 +271,8 @@ $(document).ready(function () {
 
         }
         else {
-            alert('Please enter a username!');
+            alert('Please enter your name!');
+            $('html, body').animate({ scrollTop: 0 }, 'slow');
         }
 
     });

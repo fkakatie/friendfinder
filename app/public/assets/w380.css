@@ -1,0 +1,51 @@
+@media screen and (max-width: 380px) {
+
+    /*
+    ==============================
+    HEADER
+    ==============================
+    */
+
+    header .btn-secondary {
+        display: none;
+    }
+
+    header h1 {
+        font-size: 2.25em;
+    }
+
+    /*
+    ==============================
+    FOOTER
+    ==============================
+    */
+
+    footer {
+        display: grid;
+        grid-template-columns: 1fr;
+        justify-items: center;
+    }
+
+    footer nav li {
+        padding: 8px;
+    }
+
+    .credit {
+        text-align: center;
+    }
+
+    /*
+    ==============================
+    MODAL
+    ==============================
+    */
+
+    #modal-container {
+        padding: 0;
+    }
+
+    .modal-grid {
+        transform: scale(0.8);
+    }
+
+}
