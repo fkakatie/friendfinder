@@ -285,7 +285,7 @@ $(document).ready(function () {
     // upload error image if image link invalid
     function errorImg() {
         $('img').on('error', function () {
-            $(this).unbind('error').attr('src', 'assets/error.png');
+            $(this).unbind('error').attr('src', 'assets/images/error.png');
         });
     }
 
