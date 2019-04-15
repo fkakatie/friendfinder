@@ -20,7 +20,7 @@ This project takes in user input from a `form`. After form submission, the app c
 
 ## Where users can get help with this project ##
 
-If you have any questions about this project, visit my portfolio and [send me a message](https://fkakatie.github.io/responsive-portfolio/contact.html).
+If you have any questions about this project, visit my portfolio and [send me a message](https://fkakatie.github.io/contact).
 
 ## Who maintains this project ## 
 
