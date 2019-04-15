@@ -1,5 +1,7 @@
 $(document).ready(function () {
 
+    'use strict';
+
     // check on profile pic button event
     $('.profPic').each(function () {
 
@@ -62,10 +64,10 @@ $(document).ready(function () {
                 username: username,
                 profPic: profPic,
                 survey: [q1, q2, q3, q4, q5, q6, q7, q8, q9, q10]
-            }
+            };
 
             var mbtiType;
-            let randomNum;
+            var randomNum;
 
             // generate random number between 0 and 1
             function coinflip() {
