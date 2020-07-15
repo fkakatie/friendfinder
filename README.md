@@ -8,7 +8,7 @@ This project takes in user input from a `form`. After form submission, the app c
 
 ## How users can get started with this project ## 
 
-1. **[Open Friend Finder](https://guarded-sierra-59729.herokuapp.com/survey) and start the survey**.
+1. **[Open Friend Finder](https://friendfinder-sdv.herokuapp.com/survey) and start the survey**.
     - Enter your name, a link to your profile image, and answer the ten questions below.
 
 2. **Meet your match**.
